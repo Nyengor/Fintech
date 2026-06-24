@@ -1,11 +1,12 @@
 # Use Java image
 FROM eclipse-temurin:17-jdk
 
-# Where the app lives inside container
 WORKDIR /app
 
-# Copy jar into container
-COPY target/*.jar app.jar
+COPY . .
 
-# Run Spring Boot
-ENTRYPOINT ["java","-jar","app.jar"]
+RUN ./mvnw clean package -DskipTests
+
+EXPOSE 8080
+
+ENTRYPOINT ["sh","-c","java -jar target/*.jar"]
