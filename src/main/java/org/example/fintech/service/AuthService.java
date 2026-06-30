@@ -19,10 +19,10 @@ import java.time.LocalDateTime;
 
 @Service
 public class AuthService {
-    private AuthRepository authRepository;
-    private PasswordEncoder passwordEncoder;
-    private AuthenticationManager authenticationManager;
-    private JwtUtil jwtUtil;
+    private final AuthRepository authRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authenticationManager;
+    private final JwtUtil jwtUtil;
     private final ApplicationEventPublisher eventPublisher;
 
     public AuthService(AuthRepository authRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, JwtUtil jwtUtil, ApplicationEventPublisher eventPublisher) {
