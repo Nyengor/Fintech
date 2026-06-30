@@ -158,6 +158,7 @@ public class WalletService {
                 .orElseThrow(() -> new RuntimeException("Category not found: " + editTransactionRequest.getCategory().getCategoryName()));
         transaction.setCategory(category);
 
+
         transactionsRepository.save(transaction);
 
         eventPublisher.publishEvent(
