@@ -13,13 +13,10 @@ public class AddExpenseRequest {
 
     private Category category;
 
-    private TransactionType type;
-
-    public AddExpenseRequest(BigDecimal amount, String description, Category category, TransactionType type) {
+    public AddExpenseRequest(BigDecimal amount, String description, Category category) {
         this.amount = amount;
         this.description = description;
         this.category = category;
-        this.type = type;
     }
 
     public BigDecimal getAmount() {
@@ -44,13 +41,5 @@ public class AddExpenseRequest {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public TransactionType getType() {
-        return type;
-    }
-
-    public void setType(TransactionType type) {
-        this.type = type;
     }
 }

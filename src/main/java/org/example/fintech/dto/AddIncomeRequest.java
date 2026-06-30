@@ -5,6 +5,7 @@ import org.example.fintech.entity.TransactionType;
 
 import java.math.BigDecimal;
 
+
 public class AddIncomeRequest {
     private BigDecimal amount;
 
@@ -12,13 +13,10 @@ public class AddIncomeRequest {
 
     private Category category;
 
-    private TransactionType type;
-
-    public AddIncomeRequest(BigDecimal amount, String description, Category category, TransactionType type) {
+    public AddIncomeRequest(BigDecimal amount, String description, Category category) {
         this.amount = amount;
         this.description = description;
         this.category = category;
-        this.type = type;
     }
 
     public BigDecimal getAmount() {
@@ -43,13 +41,5 @@ public class AddIncomeRequest {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public TransactionType getType() {
-        return type;
-    }
-
-    public void setType(TransactionType type) {
-        this.type = type;
     }
 }

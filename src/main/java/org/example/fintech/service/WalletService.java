@@ -149,7 +149,7 @@ public class WalletService {
                         .findById(id)
                         .orElseThrow(
                                 () -> new RuntimeException(
-                                        "Income not found"
+                                        "Transaction not found"
                                 )
                         );
         transaction.setAmount(editTransactionRequest.getAmount());

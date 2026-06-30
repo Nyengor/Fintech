@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/wallet")
 public class WalletController {
-    private Logger logger = LoggerFactory.getLogger(WalletController.class);
+    private final Logger logger = LoggerFactory.getLogger(WalletController.class);
 
-    private WalletService walletService;
+    private final WalletService walletService;
 
     public WalletController(WalletService walletService) {
         this.walletService = walletService;
@@ -44,14 +44,14 @@ public class WalletController {
     }
 
     @PatchMapping("/transactions/{id}")
-    public EditTransactionResponse editIncome(@PathVariable Long id, @RequestBody EditTransactionRequest editTransactionRequest, HttpServletRequest servletRequest) {
+    public EditTransactionResponse editTransaction(@PathVariable Long id, @RequestBody EditTransactionRequest editTransactionRequest, HttpServletRequest servletRequest) {
         String ipAddress = servletRequest.getRemoteAddr();
         logger.info("This is the balance overview logging test");
         return walletService.editTransaction(id, editTransactionRequest, ipAddress);
     }
 
     @DeleteMapping("/transactions/{id}")
-    public DeleteTransactionResponse deleteIncome(@PathVariable Long id, HttpServletRequest servletRequest) {
+    public DeleteTransactionResponse deleteTransaction(@PathVariable Long id, HttpServletRequest servletRequest) {
         String ipAddress = servletRequest.getRemoteAddr();
         return walletService.deleteTransaction(id, ipAddress);
     }
